@@ -19,3 +19,6 @@ VS2015で作成されています。\
 
 32bit - debug でのみ動作確認をしています。
 
+## ブログ
+<a href="http://d.hatena.ne.jp/Ko-Ta/20170816/p1">http://d.hatena.ne.jp/Ko-Ta/20170816/p1</a>
+
