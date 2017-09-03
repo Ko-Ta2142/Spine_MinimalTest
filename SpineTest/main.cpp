@@ -112,7 +112,7 @@ void myCustomDraw_region(spSlot* slot , spAttachment* attachment , spColor* col 
 	// Create 2 triangles, with 3 vertices each from the region's
 	// world vertex positions and its UV coordinates (in the range [0-1]).
 
-	// lŠpŒ`‚Í2ŒÂ‚ÌOŠpŒ`‚Åo—Í‚³‚êAŒv6’¸“_(12float array)‚Ì”z—ñ‚Å•Ô‚µ‚Ü‚·B
+	// å››è§’å½¢ã¯2å€‹ã®ä¸‰è§’å½¢ã§å‡ºåŠ›ã•ã‚Œã€è¨ˆ6é ‚ç‚¹(12float array)ã®é…åˆ—ã§è¿”ã—ã¾ã™ã€‚
 
 	float xx[3], yy[3];	//vertex
 	float uu[3], vv[3];	//uv
@@ -171,9 +171,9 @@ void myCustomDraw_mesh(spSlot* slot , spAttachment* attachment , spColor* col , 
 	//		tintR, tintG, tintB, tintA, &vertexIndex);
 	//}
 	
-	//‚â‚â‚±‚µ‚¢‚Å‚·‚ªA
-	//triangleCount•ª‚Ì(x,y)’¸“_index‚ª“ü‚Á‚Ä‚¢‚ÄiOŠpŒ`‚Ì”‚¶‚á‚È‚¢‚ñ‚¾...jA3’¸“_‚²‚Æ‚É1OŠpŒ`‚ğ\¬‚µ‚Ü‚·B
-	//4’¸“_‚Í‘¶İ‚µ‚Ü‚¹‚ñB
+	//ã‚„ã‚„ã“ã—ã„ã§ã™ãŒã€
+	//triangleCountåˆ†ã®(x,y)é ‚ç‚¹indexãŒå…¥ã£ã¦ã„ã¦ï¼ˆä¸‰è§’å½¢ã®æ•°ã˜ã‚ƒãªã„ã‚“ã ...ï¼‰ã€3é ‚ç‚¹ã”ã¨ã«1ä¸‰è§’å½¢ã‚’æ§‹æˆã—ã¾ã™ã€‚
+	//4é ‚ç‚¹ã¯å­˜åœ¨ã—ã¾ã›ã‚“ã€‚
 
 	float xx[3], yy[3];	//vertex
 	float uu[3], vv[3];	//uv
@@ -333,7 +333,7 @@ int main(int argc, char* argv[])
 	//main loop
 	for (int i = 0; i < 1; i++) {
 		//update (time move) 60fps
-		spAnimationState_update(animationState, 1000/60);	//probably trunc micro seconds better
+		spAnimationState_update(animationState, 1.0/60);	//probably trunc micro seconds better
 
 		//apply skeleton 
 		spAnimationState_apply(animationState, skeleton);
