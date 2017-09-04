@@ -95,7 +95,7 @@ void myCustomDraw_region(spSlot* slot , spAttachment* attachment , spColor* col 
 	spRegionAttachment* regionAttachment = (spRegionAttachment*)attachment;
 
 	// Check the number of vertices in the mesh attachment.
-	_worldVertices_setlength(6*2);	//2 triangles
+	_worldVertices_setlength(4*2);	//4 vertex
 
 	// Our engine specific Texture is stored in the spAtlasRegion which was
 	// assigned to the attachment on load. It represents the texture atlas
@@ -112,7 +112,11 @@ void myCustomDraw_region(spSlot* slot , spAttachment* attachment , spColor* col 
 	// Create 2 triangles, with 3 vertices each from the region's
 	// world vertex positions and its UV coordinates (in the range [0-1]).
 
-	// 四角形は2個の三角形で出力され、計6頂点(12float array)の配列で返します。
+	// 「Computed the world vertices positions for the 4 vertices that make up」
+	// が正確な情報で、4頂点分を計算します。
+	// つまり、0,1,2 と 2,3,0 の2個の三角形を形成します。
+
+	const float idxtbl[6] = { 0,1,2,2,3,0 };
 
 	float xx[3], yy[3];	//vertex
 	float uu[3], vv[3];	//uv
@@ -123,7 +127,7 @@ void myCustomDraw_region(spSlot* slot , spAttachment* attachment , spColor* col 
 		//triangle
 		for (int j = 0; j < 3; j++) {
 			//vertex
-			int idx = triangleindex * 2;
+			int idx = idxtbl[triangleindex] * 2;
 			triangleindex++;
 			xx[j] = sptr[idx + 0];
 			yy[j] = sptr[idx + 1];
