@@ -14,12 +14,6 @@
 #include "spine\extension.h"
 #include "spine\spine.h"
 
-#define ATTACHMENT_REGION 0
-#define ATTACHMENT_BOUNDING_BOX 1
-#define ATTACHMENT_MESH 2
-#define ATTACHMENT_LINKED_MESH 3
-#define ATTACHMENT_PATH 4
-
 //#include <crtdbg.h>
 
 //computing vertex buffer
@@ -240,10 +234,10 @@ void myCustomDraw(spSkeleton* skeleton) {
 		col.a = skeleton->color.a * slot->color.a;
 
 		// Fill the vertices array depending on the type of attachment
-		if (attachment->type == ATTACHMENT_REGION) {
+		if (attachment->type == SP_ATTACHMENT_REGION) {
 			myCustomDraw_region(slot,attachment , &col , blendmode);
 		}
-		else if (attachment->type == ATTACHMENT_MESH) {
+		else if (attachment->type == SP_ATTACHMENT_MESH) {
 			myCustomDraw_mesh(slot,attachment, &col , blendmode);
 		}
 		else {
