@@ -110,7 +110,7 @@ void myCustomDraw_region(spSlot* slot , spAttachment* attachment , spColor* col 
 	// が正確な情報で、4頂点分を計算します。
 	// つまり、0,1,2 と 2,3,0 の2個の三角形を形成します。
 
-	const float idxtbl[6] = { 0,1,2,2,3,0 };
+	const int idxtbl[6] = { 0,1,2,2,3,0 };
 
 	float xx[3], yy[3];	//vertex
 	float uu[3], vv[3];	//uv
