@@ -227,11 +227,21 @@ void myCustomDraw(spSkeleton* skeleton) {
 		// and the slot's color. Each color channel is given in the
 		// range [0-1], you may have to multiply by 255 and cast to
 		// and int if your engine uses integer ranges for color channels.
-		spColor col;
-		col.r = skeleton->color.r * slot->color.r;
-		col.g = skeleton->color.g * slot->color.g;
-		col.b = skeleton->color.b * slot->color.b;
-		col.a = skeleton->color.a * slot->color.a;
+		spColor mulcol,screencol;
+		mulcol.r = skeleton->color.r * slot->color.r;
+		mulcol.g = skeleton->color.g * slot->color.g;
+		mulcol.b = skeleton->color.b * slot->color.b;
+		mulcol.a = skeleton->color.a * slot->color.a;
+		screencol.r = 0.0f;
+		screencol.g = 0.0f;
+		screencol.b = 0.0f;
+		screencol.a = 0.0f;
+		if (slot->darkColor != nullptr) {
+			screencol.r = slot->darkColor->r;
+			screencol.g = slot->darkColor->g;
+			screencol.b = slot->darkColor->b;
+			screencol.a = slot->darkColor->a;
+		}
 
 		// Fill the vertices array depending on the type of attachment
 		if (attachment->type == SP_ATTACHMENT_REGION) {
@@ -284,7 +294,7 @@ int main(int argc, char* argv[])
 	//call create texture
 	f = base + "spineboy.atlas";
 	std::vector<char>* ms = _readfile(f);
-	spAtlas* atlas = spAtlas_create(ms->data(), ms->size(), f.c_str(), 0);
+	spAtlas* atlas = spAtlas_create(ms->data(), ms->size(), base.c_str(), 0);
 	delete ms;
 	if (atlas == nullptr) {
 		printf("Atlas.faild\n");
